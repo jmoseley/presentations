@@ -1543,9 +1543,6 @@
       <button class="control-button" id="previous" type="button" aria-label="Previous slide">&larr;</button>
       <span class="slide-count" id="slide-count" aria-hidden="true"></span>
       <button class="control-button" id="next" type="button" aria-label="Next slide">&rarr;</button>
-      <button class="control-button" id="notes" type="button" aria-label="Toggle speaker notes">N</button>
-      <button class="control-button" id="overview" type="button" aria-label="Toggle slide overview">O</button>
-      <button class="control-button" id="help" type="button" aria-label="Show keyboard help">?</button>
     </nav>
 
     <div class="progress" aria-hidden="true">
@@ -1585,7 +1582,6 @@
       const progress = document.getElementById("progress-bar");
       const status = document.getElementById("slide-status");
       const helpDialog = document.getElementById("keyboard-help");
-      const helpButton = document.getElementById("help");
       const closeHelpButton = document.getElementById("close-help");
       let current = Math.max(0, Math.min(slides.length - 1, Number(location.hash.slice(1)) - 1 || 0));
       let lastFocusedElement = null;
@@ -1619,13 +1615,11 @@
       function toggleNotes(force) {
         const shouldShow = force ?? !document.body.classList.contains("notes-visible");
         document.body.classList.toggle("notes-visible", shouldShow);
-        document.getElementById("notes").setAttribute("aria-pressed", String(shouldShow));
       }
 
       function toggleOverview(force) {
         const shouldShow = force ?? !document.body.classList.contains("overview");
         document.body.classList.toggle("overview", shouldShow);
-        document.getElementById("overview").setAttribute("aria-pressed", String(shouldShow));
         if (!shouldShow) {
           render(false);
         }
@@ -1654,9 +1648,6 @@
 
       document.getElementById("previous").addEventListener("click", () => goTo(current - 1));
       document.getElementById("next").addEventListener("click", () => goTo(current + 1));
-      document.getElementById("notes").addEventListener("click", () => toggleNotes());
-      document.getElementById("overview").addEventListener("click", () => toggleOverview());
-      helpButton.addEventListener("click", openHelp);
       closeHelpButton.addEventListener("click", closeHelp);
 
       helpDialog.addEventListener("click", (event) => {
