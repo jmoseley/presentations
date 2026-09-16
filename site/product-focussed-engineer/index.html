@@ -20,6 +20,8 @@
         --red: #ff9b9b;
         --line: rgba(255, 255, 255, 0.14);
         --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        --slide-body-size: clamp(1.25rem, 1.9vw, 1.5rem);
+        --slide-label-size: clamp(1rem, 1.4vw, 1.25rem);
       }
 
       * {
@@ -80,6 +82,7 @@
       .slide-inner {
         width: min(100%, 1280px);
         margin: auto;
+        font-size: var(--slide-body-size);
       }
 
       h1,
@@ -107,7 +110,7 @@
 
       h3 {
         margin-bottom: 0.65rem;
-        font-size: clamp(1.1rem, 2vw, 1.55rem);
+        font-size: clamp(1.35rem, 2.2vw, 1.75rem);
         letter-spacing: -0.02em;
       }
 
@@ -124,6 +127,19 @@
         color: var(--blue);
       }
 
+      .example-copy {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .example-copy p {
+        margin: 0;
+      }
+
+      .example-copy strong {
+        color: var(--text);
+      }
+
       .warm {
         color: var(--gold);
       }
@@ -138,6 +154,18 @@
 
       .intro-slide {
         padding-bottom: max(5rem, 5vw);
+      }
+
+      .copilot-opening .slide-inner {
+        display: grid;
+        place-items: center;
+      }
+
+      .copilot-opening img {
+        display: block;
+        width: min(45vw, 45vh, 28rem);
+        height: auto;
+        filter: brightness(0) invert(1);
       }
 
       .intro-layout {
@@ -173,6 +201,25 @@
       .intro-points strong {
         color: var(--text);
         font-weight: 600;
+      }
+
+      .intro-role {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .intro-role-logos {
+        display: flex;
+        flex: none;
+        gap: 0.75rem;
+      }
+
+      .intro-role-logos img {
+        display: block;
+        width: clamp(1.75rem, 3vw, 2.5rem);
+        height: clamp(1.75rem, 3vw, 2.5rem);
+        filter: brightness(0) invert(1);
       }
 
       .intro-photo {
@@ -259,6 +306,7 @@
       }
 
       .card {
+        overflow-wrap: anywhere;
         min-height: 9rem;
         padding: clamp(1.2rem, 2vw, 1.8rem);
         border: 1px solid var(--line);
@@ -270,7 +318,7 @@
       .card p {
         margin-bottom: 0;
         color: var(--muted);
-        font-size: clamp(1rem, 1.5vw, 1.25rem);
+        font-size: var(--slide-body-size);
         line-height: 1.45;
       }
 
@@ -278,7 +326,7 @@
         display: block;
         margin-bottom: 1.5rem;
         color: var(--blue);
-        font-size: 0.8rem;
+        font-size: var(--slide-label-size);
         font-weight: 800;
         letter-spacing: 0.14em;
       }
@@ -321,7 +369,7 @@
 
       .chain-label {
         color: var(--faint);
-        font-size: 0.75rem;
+        font-size: var(--slide-label-size);
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -373,7 +421,7 @@
       .diagram-label {
         margin: 0;
         color: var(--blue);
-        font-size: 0.8rem;
+        font-size: var(--slide-label-size);
         font-weight: 800;
         letter-spacing: 0.13em;
         text-transform: uppercase;
@@ -382,7 +430,7 @@
       .diagram-caption {
         margin: 0;
         color: var(--muted);
-        font-size: 1rem;
+        font-size: var(--slide-body-size);
         line-height: 1.4;
       }
 
@@ -395,7 +443,7 @@
         border-radius: 0.9rem;
         background: var(--surface);
         color: var(--muted);
-        font-size: clamp(1rem, 1.6vw, 1.3rem);
+        font-size: var(--slide-body-size);
       }
 
       .metric strong {
@@ -424,7 +472,7 @@
         position: absolute;
         top: 1.2rem;
         left: 1.4rem;
-        font-size: clamp(1.1rem, 2vw, 1.6rem);
+        font-size: clamp(1.35rem, 2.2vw, 1.75rem);
         font-weight: 750;
       }
 
@@ -450,7 +498,7 @@
 
       .versus-word {
         color: var(--faint);
-        font-size: 0.9rem;
+        font-size: var(--slide-label-size);
         font-weight: 800;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -476,7 +524,7 @@
 
       .big-card span {
         color: var(--muted);
-        font-size: clamp(1rem, 1.7vw, 1.35rem);
+        font-size: var(--slide-body-size);
       }
 
       .mean-row {
@@ -632,12 +680,13 @@
       }
 
       .artifact {
+        overflow-wrap: anywhere;
         padding: 1.25rem;
         border-left: 4px solid var(--blue);
         border-radius: 0 0.9rem 0.9rem 0;
         background: var(--surface);
         color: var(--muted);
-        font-size: clamp(1rem, 1.6vw, 1.25rem);
+        font-size: var(--slide-body-size);
         line-height: 1.35;
       }
 
@@ -698,7 +747,7 @@
         border-radius: 0 0.8rem 0.8rem 0;
         background: var(--surface);
         color: var(--muted);
-        font-size: clamp(1rem, 1.6vw, 1.25rem);
+        font-size: var(--slide-body-size);
         line-height: 1.4;
       }
 
@@ -1010,6 +1059,48 @@
         }
       }
 
+      @media (min-width: 851px) and (max-height: 800px) {
+        .slide {
+          padding: 2rem;
+        }
+
+        .slide h2 {
+          max-width: 20ch;
+        }
+
+        .grid-3,
+        .grid-4,
+        .graph-layout,
+        .loop {
+          margin-top: 1.5rem;
+        }
+
+        .graph {
+          min-height: 18rem;
+        }
+
+        .graph svg {
+          position: absolute;
+          inset: 0;
+        }
+
+        .graph-layout {
+          margin-top: 1rem;
+        }
+
+        .metric {
+          padding-block: 0.5rem;
+        }
+
+        .metric-stack {
+          gap: 0.5rem;
+        }
+
+        .proxy-panel {
+          gap: 0.75rem;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -1045,12 +1136,24 @@
   </head>
   <body>
     <main class="deck" id="deck">
-      <section class="slide intro-slide" data-title="About Jeremy" data-section="Opening">
+      <section class="slide copilot-opening" data-title="Copilot" data-section="Opening">
+        <div class="slide-inner">
+          <img src="assets/copilot.svg" alt="GitHub Copilot" width="24" height="24" />
+        </div>
+      </section>
+
+      <section class="slide intro-slide" data-title="About Jeremy" data-section="Opening" hidden>
         <div class="slide-inner intro-layout">
           <h2>About me.</h2>
           <img class="intro-photo" src="assets/jeremy.png" alt="Jeremy" width="512" height="512" />
           <div class="intro-points">
-            <p>I lead the <strong>GitHub Copilot App</strong>.</p>
+            <p class="intro-role">
+              <span class="intro-role-logos">
+                <img src="assets/github.svg" alt="GitHub" width="24" height="24" />
+                <img src="assets/copilot.svg" alt="Copilot" width="24" height="24" />
+              </span>
+              <span>I lead the <strong>GitHub Copilot App</strong>.</span>
+            </p>
             <p>I've worked at small and medium-sized startups including <strong>Convoy, ClassDojo, and Inkling</strong>, and was a <strong>founder at GenSX</strong>.</p>
           </div>
           <div class="intro-companies" role="group" aria-label="Previous companies">
@@ -1128,41 +1231,6 @@
         </aside>
       </section>
 
-      <section class="slide" data-title="Code is not the outcome" data-section="Act I - Outcomes" hidden>
-        <div class="slide-inner">
-          <h2>Code is not the product.</h2>
-          <div class="chain" aria-label="A chain from code to organizational outcome">
-            <div class="chain-item">
-              <span class="chain-label">Output</span>
-              <span class="chain-value">Code</span>
-            </div>
-            <div class="chain-item">
-              <span class="chain-label">Capability</span>
-              <span class="chain-value">Something becomes possible</span>
-            </div>
-            <div class="chain-item">
-              <span class="chain-label">User outcome</span>
-              <span class="chain-value">Someone succeeds</span>
-            </div>
-            <div class="chain-item">
-              <span class="chain-label">Organization</span>
-              <span class="chain-value">Value is created</span>
-            </div>
-          </div>
-        </div>
-        <aside class="speaker-notes">
-          <h3>Outcome chain - 2 minutes</h3>
-          <p>
-            Most of us are not paid merely to produce code. We are paid because the
-            code enables someone to do something that matters.
-          </p>
-          <p>
-            Walk from left to right. The further right you understand, the better the
-            decisions you can make on the left.
-          </p>
-        </aside>
-      </section>
-
       <section class="slide" data-title="Every organization has a graph" data-section="Act I - Outcomes" hidden>
         <div class="slide-inner">
           <h2>Every organization has a graph.</h2>
@@ -1207,6 +1275,97 @@
         </aside>
       </section>
 
+      <section class="slide" data-title="Code is not the outcome" data-section="Act I - Outcomes" hidden>
+        <div class="slide-inner">
+          <h2>Code is not the product.</h2>
+          <div class="chain" aria-label="A chain from code to organizational outcome">
+            <div class="chain-item">
+              <span class="chain-label">Output</span>
+              <span class="chain-value">Code</span>
+            </div>
+            <div class="chain-item">
+              <span class="chain-label">Capability</span>
+              <span class="chain-value">Something becomes possible</span>
+            </div>
+            <div class="chain-item">
+              <span class="chain-label">User outcome</span>
+              <span class="chain-value">Someone succeeds</span>
+            </div>
+            <div class="chain-item">
+              <span class="chain-label">Organization</span>
+              <span class="chain-value">Value is created</span>
+            </div>
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Outcome chain - 2 minutes</h3>
+          <p>
+            Most of us are not paid merely to produce code. We are paid because the
+            code enables someone to do something that matters.
+          </p>
+          <p>
+            Walk from left to right. The further right you understand, the better the
+            decisions you can make on the left.
+          </p>
+        </aside>
+      </section>
+
+      <section class="slide" data-title="A faster agent, slower shipping" data-section="Act I - Outcomes" hidden>
+        <div class="slide-inner">
+          <h2>The agent got faster. Shipping got slower.</h2>
+          <div class="grid-3">
+            <article class="card">
+              <h3>A faster agent</h3>
+              <p>
+                A coding task finishes in <strong class="good">5 minutes instead of 20</strong>.
+                The agent's performance looks better.
+              </p>
+            </article>
+            <article class="card">
+              <h3>A slower review</h3>
+              <p>
+                The diff mixes the requested change with refactors and cleanup.
+                The engineer spends <strong class="warm">an hour checking it</strong>.
+              </p>
+            </article>
+            <article class="card">
+              <h3>A better product</h3>
+              <p>
+                Prefer a focused change with useful review evidence, even if the agent
+                takes longer. Optimize for <strong class="accent">safely shipped changes</strong>.
+              </p>
+            </article>
+          </div>
+          <p class="diagram-caption" style="margin-top: 1.5rem">Hypothetical coding-agent example.</p>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Coding-agent example - 2 minutes</h3>
+          <p>
+            This is a fabricated scenario, not a claim about GitHub Copilot or a
+            measured product result. Suppose a team makes its coding agent finish
+            a task in five minutes instead of twenty.
+          </p>
+          <p>
+            The new agent also produces a larger diff, mixing the requested change
+            with refactors and cleanup. The engineer now spends an hour figuring
+            out what changed and whether it is safe. Faster generation has shifted
+            work onto the person responsible for shipping.
+          </p>
+          <p>
+            A better product might take longer to generate a focused change that
+            preserves existing behavior and includes useful review evidence:
+            relevant tests, a clear explanation, and explicit limitations.
+          </p>
+          <p>
+            Trace the outcome chain: agent code enables a reviewable change; the
+            engineer can assess and ship it safely; the organization can deliver
+            useful improvements. Measure the whole path through review and shipping,
+            including quality, rather than assuming faster generation creates value.
+            Agent runtime is a proxy, not the outcome.
+          </p>
+        </aside>
+      </section>
+
       <section class="slide" data-title="Requirements have gaps" data-section="Act II - Product focus" hidden>
         <div class="slide-inner">
           <h2>Every implementation contains assumptions.</h2>
@@ -1238,6 +1397,40 @@
           <p>
             The difference is whether those assumptions are informed by context or
             made accidentally.
+          </p>
+        </aside>
+      </section>
+
+      <section class="slide" data-title="A timeout is not a failed payment" data-section="Act II - Product focus" hidden>
+        <div class="slide-inner">
+          <h2>Retrying a payment</h2>
+          <div class="example-copy lede">
+            <p><strong>Request:</strong> Add a retry button after a payment timeout.</p>
+            <p>
+              A timeout doesn't tell us whether the customer was charged.
+              Starting a new payment could charge them twice.
+            </p>
+            <p>
+              How can the customer complete their purchase without being charged twice?
+            </p>
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Payment timeout example - 2 minutes</h3>
+          <p>
+            Hypothetical requirement: let customers retry failed payments.
+            The provider processes a charge, but checkout times out before receiving
+            confirmation. Retrying as a new payment can create a second charge.
+          </p>
+          <p>
+            The assumption is that a timeout means the payment failed.
+            It actually means the result is unknown.
+          </p>
+          <p>
+            Persist the payment attempt and its idempotency key before sending it.
+            Reconcile provider status and reuse that key for retries of the same
+            operation, within the provider's documented retention window.
+            Show a pending state until the result is known.
           </p>
         </aside>
       </section>
@@ -1357,7 +1550,7 @@
 
       <section class="slide" data-title="AI fills the blanks" data-section="Act III - AI" hidden>
         <div class="slide-inner">
-          <h2>AI fills every gap with something plausible.</h2>
+          <h2>AI implements a solution to your request, but not always the right one.</h2>
           <div class="mean-row" aria-label="Five similar generic product designs">
             <div class="generic-product"></div>
             <div class="generic-product"></div>
@@ -1366,7 +1559,7 @@
             <div class="generic-product"></div>
           </div>
           <p class="lede" style="margin-top: 2rem">
-            Plausible is useful. Plausible is not the same as correct.
+            Meeting the request doesn't necessarily solve the user's problem.
           </p>
         </div>
         <aside class="speaker-notes">
@@ -1379,6 +1572,46 @@
           <p>
             If intent is vague, the output can be impressively complete and still be
             based on the wrong understanding of the problem.
+          </p>
+        </aside>
+      </section>
+
+      <section class="slide" data-title="Onboarding example" data-section="Act III - AI" hidden>
+        <div class="slide-inner">
+          <h2>Onboarding</h2>
+          <div class="example-copy lede">
+            <p>
+              An agent builds onboarding: profile setup, workspace creation,
+              and teammate invitations before the first task.
+            </p>
+            <p>
+              A developer trying the tool alone must finish setup before seeing
+              whether it is useful.
+            </p>
+            <p>
+              What does this user need to do before they can decide whether
+              the tool is worth using?
+            </p>
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Onboarding example - 2 minutes</h3>
+          <p>
+            Hypothetical request: build onboarding for a developer tool. The agent
+            supplies a conventional sequence of profile setup, workspace creation,
+            and teammate invitations. Each step works, but the request never
+            specified who is evaluating the tool or what they need to try first.
+          </p>
+          <p>
+            For a developer evaluating alone, those steps may delay the first useful
+            result without helping them assess the tool. Ask the audience which setup
+            is genuinely required for a first task and which could wait.
+          </p>
+          <p>
+            Some setup may be necessary for access control, safety, or the task
+            itself. The point is not to remove every step; it is to choose the steps
+            based on this user's goal rather than copy a familiar flow.
+            This also introduces the next slide about taste and product context.
           </p>
         </aside>
       </section>
@@ -1452,6 +1685,44 @@
         </aside>
       </section>
 
+      <section class="slide" data-title="Report deadline example" data-section="Act III - AI" hidden>
+        <div class="slide-inner">
+          <h2>Retrying a report job</h2>
+          <div class="example-copy lede">
+            <p>
+              An agent adds retries with exponential backoff to a failing report job.
+            </p>
+            <p>
+              The report is needed for the 6 a.m. operations handoff.
+            </p>
+            <p>
+              Give the agent the handoff deadline and the team's process for
+              handling a missing report.
+            </p>
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Report deadline example - 2 minutes</h3>
+          <p>
+            Hypothetical request: add automatic retries to a background job that
+            generates an operations report. The agent sees intermittent failures
+            and implements exponential backoff.
+          </p>
+          <p>
+            The code does not explain the 6 a.m. handoff or that operations falls
+            back to yesterday's report. The engineer learns this from the team and
+            brings the deadline, fallback behavior, and notification needs into the
+            task.
+          </p>
+          <p>
+            Ask what the team needs to make decisions when fresh data is unavailable.
+            Agree on when to escalate, who to notify, and how to identify stale
+            data. Those requirements determine the retry and recovery behavior;
+            eventual job success alone does not establish that the report helped.
+          </p>
+        </aside>
+      </section>
+
       <section class="slide" data-title="Make context durable" data-section="Act III - AI" hidden>
         <div class="slide-inner">
           <h2>Make product context durable.</h2>
@@ -1479,6 +1750,38 @@
             Mention that complexity still matters: AI can create unnecessary
             complexity faster, while humans still pay the cost of understanding,
             reviewing, operating, and trusting it.
+          </p>
+        </aside>
+      </section>
+
+      <section class="slide" data-title="Documenting the report deadline" data-section="Act III - AI" hidden>
+        <div class="slide-inner">
+          <h2>Record the deadline</h2>
+          <div class="example-copy lede">
+            <p><strong>Requirement:</strong> The report must be ready for the 6 a.m. handoff.</p>
+            <p><strong>Runbook:</strong> Who to notify and what operations should do if it won't be ready.</p>
+            <p><strong>Tests:</strong> Verify the agreed deadline and notification behavior when the job keeps failing.</p>
+            <p>How will the next engineer or agent know this constraint exists?</p>
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Durable report context - 2 minutes</h3>
+          <p>
+            Continue the hypothetical report example. The engineer has learned about
+            the 6 a.m. handoff. Put that constraint somewhere the next person or
+            agent working on the job will find it, rather than leaving it in one
+            conversation.
+          </p>
+          <p>
+            Record the deadline in the requirements. Agree with operations on who
+            receives a notification and what to do when the report is unavailable,
+            then document that response in the runbook.
+          </p>
+          <p>
+            Use a controlled clock and simulated job failures to test the agreed
+            cutoff and notification behavior. Tests protect the implementation;
+            the requirement and runbook explain why that behavior matters.
+            Link these artifacts from the job's documentation so they are discoverable.
           </p>
         </aside>
       </section>
@@ -1578,6 +1881,45 @@
         </aside>
       </section>
 
+      <section class="slide" data-title="Measuring onboarding" data-section="Act IV - Practice" hidden>
+        <div class="slide-inner">
+          <h2>Measuring onboarding</h2>
+          <div class="example-copy lede">
+            <p>
+              Move profile setup and invitations after the first task.
+              More users finish onboarding, but no more users complete a task.
+            </p>
+            <p>
+              Observe a few sessions: users reach the tool but don't know what to try.
+            </p>
+            <p>
+              Add a runnable example. Measure whether users can then complete
+              a task with their own input.
+            </p>
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Measuring onboarding - 2 minutes</h3>
+          <p>
+            Continue the hypothetical onboarding example. The hypothesis is that
+            deferring unnecessary setup will help more users complete their first
+            task. Onboarding completion increases, but task completion does not.
+          </p>
+          <p>
+            Observe sessions with participants' consent. In this scenario, users
+            reach the tool but do not know what to try. That suggests a different
+            obstacle than the setup steps the team removed.
+          </p>
+          <p>
+            Add a runnable example and test the new hypothesis: users who see how
+            the tool works can apply it to their own task. Measure task completion
+            with their own input, not just how often the example is run. Check
+            whether the result is useful through user feedback. Do not assume
+            the new intervention works before measuring it.
+          </p>
+        </aside>
+      </section>
+
       <section class="slide" data-title="Every team has customers" data-section="Act IV - Practice" hidden>
         <div class="slide-inner">
           <h2>Every engineering team builds something for someone.</h2>
@@ -1647,6 +1989,15 @@
           <p>
             End cleanly. Do not add another list after this slide.
           </p>
+        </aside>
+      </section>
+      <section class="slide" data-title="Questions" data-section="Closing" hidden>
+        <div class="slide-inner">
+          <h2>Questions?</h2>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Q&amp;A</h3>
+          <p>Invite questions from the audience.</p>
         </aside>
       </section>
     </main>
