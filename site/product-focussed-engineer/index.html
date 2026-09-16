@@ -136,6 +136,79 @@
         color: var(--pink);
       }
 
+      .intro-slide {
+        padding-bottom: max(5rem, 5vw);
+      }
+
+      .intro-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        grid-template-areas:
+          "heading photo"
+          "copy photo"
+          "companies companies";
+        align-items: start;
+        gap: 2rem clamp(2rem, 5vw, 5rem);
+      }
+
+      .intro-layout h2 {
+        grid-area: heading;
+        margin: 0;
+      }
+
+      .intro-points {
+        grid-area: copy;
+        display: grid;
+        gap: 1.1rem;
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(1.25rem, 2.3vw, 2rem);
+        line-height: 1.4;
+      }
+
+      .intro-points p {
+        margin: 0;
+      }
+
+      .intro-points strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .intro-photo {
+        grid-area: photo;
+        display: block;
+        width: 100%;
+        max-width: 24rem;
+        height: auto;
+        justify-self: end;
+        border-radius: 1.2rem;
+      }
+
+      .intro-companies {
+        grid-area: companies;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: center;
+        justify-items: center;
+        gap: clamp(1rem, 3vw, 3rem);
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .intro-companies img {
+        display: block;
+        width: 100%;
+        max-width: 10rem;
+        height: clamp(2.5rem, 5vw, 4rem);
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+
+      .intro-companies .classdojo-logo {
+        filter: none;
+      }
+
       .huge-statement {
         max-width: 15ch;
         font-size: clamp(3.2rem, 8.2vw, 8rem);
@@ -877,6 +950,20 @@
       }
 
       @media (max-width: 850px) {
+        .intro-layout {
+          grid-template-columns: minmax(0, 1fr) minmax(6rem, 25%);
+          grid-template-areas:
+            "heading photo"
+            "copy copy"
+            "companies companies";
+          gap: 1.5rem;
+        }
+
+        .intro-companies {
+          gap: 0.75rem;
+          padding-top: 1.5rem;
+        }
+
         .grid-3,
         .grid-4,
         .artifact-grid,
@@ -958,7 +1045,32 @@
   </head>
   <body>
     <main class="deck" id="deck">
-      <section class="slide title-slide" data-title="Title" data-section="Opening">
+      <section class="slide intro-slide" data-title="About Jeremy" data-section="Opening">
+        <div class="slide-inner intro-layout">
+          <h2>About me.</h2>
+          <img class="intro-photo" src="assets/jeremy.png" alt="Jeremy" width="512" height="512" />
+          <div class="intro-points">
+            <p>I lead the <strong>GitHub Copilot App</strong>.</p>
+            <p>I've worked at small and medium-sized startups including <strong>Convoy, ClassDojo, and Inkling</strong>, and was a <strong>founder at GenSX</strong>.</p>
+          </div>
+          <div class="intro-companies" role="group" aria-label="Previous companies">
+            <img src="assets/gensx.svg" alt="GenSX" width="500" height="200" />
+            <img src="assets/convoy.svg" alt="Convoy" width="355" height="52" />
+            <img class="classdojo-logo" src="assets/classdojo.svg" alt="ClassDojo" width="154" height="48" />
+            <img src="assets/inkling.png" alt="Inkling" width="625" height="271" />
+          </div>
+        </div>
+        <aside class="speaker-notes">
+          <h3>Introduction - 1 minute</h3>
+          <p>
+            I'm Jeremy, and I lead the GitHub Copilot App. My background is in
+            small and medium-sized startups. I was a founder at GenSX,
+            and I've also worked at Convoy, ClassDojo, and Inkling.
+          </p>
+        </aside>
+      </section>
+
+      <section class="slide title-slide" data-title="Title" data-section="Opening" hidden>
         <div class="slide-inner">
           <h1>How to be a product focussed engineer, and why it matters now more than ever</h1>
           <p class="lede">When code gets cheaper, judgment becomes more valuable.</p>
